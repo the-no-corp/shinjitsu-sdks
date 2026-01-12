@@ -1,0 +1,209 @@
+openapi: 3.1.0
+info:
+  description: Document fraud detection API
+  title: ShinJitsu API
+  version: 1.0.0
+servers:
+- description: Production
+  url: https://api.the-no-corp.com
+security:
+- BearerAuth: []
+paths:
+  /v1/analyze:
+    post:
+      description: |-
+        Analyze a document for fraud indicators.
+
+        Requires API token authentication via Authorization header:
+        ```
+        Authorization: Bearer shj_your_api_token_here
+        ```
+
+        Supported file types:
+        - JPEG images (.jpg, .jpeg)
+        - PNG images (.png)
+        - PDF documents (.pdf)
+      operationId: analyze_document_v1_analyze_post
+      parameters:
+      - description: "Bearer token: 'Bearer shj_...'"
+        explode: false
+        in: header
+        name: authorization
+        required: true
+        schema:
+          description: "Bearer token: 'Bearer shj_...'"
+          title: Authorization
+          type: string
+        style: simple
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: "#/components/schemas/Body_analyze_document_v1_analyze_post"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AnalyzeResponse"
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+          description: Validation Error
+      summary: Analyze Document
+      tags:
+      - analyze
+components:
+  schemas:
+    AnalyzeResponse:
+      description: Response from document analysis.
+      example:
+        summary: summary
+        processing_time_ms: 1
+        risk_score: 0.8008281904610115
+        file_name: file_name
+        file_type: file_type
+        verdict: verdict
+        scan_id: scan_id
+        indicators:
+        - severity: severity
+          score: 6.027456183070403
+          service: service
+          description: description
+          type: type
+        - severity: severity
+          score: 6.027456183070403
+          service: service
+          description: description
+          type: type
+      properties:
+        scan_id:
+          title: Scan Id
+          type: string
+        risk_score:
+          title: Risk Score
+          type: number
+        verdict:
+          title: Verdict
+          type: string
+        indicators:
+          items:
+            $ref: "#/components/schemas/src__controllers__v1__demo__FraudIndicator"
+          type: array
+        summary:
+          title: Summary
+          type: string
+        processing_time_ms:
+          title: Processing Time Ms
+          type: integer
+        file_name:
+          title: File Name
+          type: string
+        file_type:
+          title: File Type
+          type: string
+      required:
+      - file_name
+      - file_type
+      - indicators
+      - processing_time_ms
+      - risk_score
+      - scan_id
+      - summary
+      - verdict
+      title: AnalyzeResponse
+    Body_analyze_document_v1_analyze_post:
+      properties:
+        file:
+          format: binary
+          title: File
+          type: string
+      required:
+      - file
+      title: Body_analyze_document_v1_analyze_post
+    HTTPValidationError:
+      example:
+        detail:
+        - msg: msg
+          loc:
+          - ValidationError_loc_inner
+          - ValidationError_loc_inner
+          type: type
+        - msg: msg
+          loc:
+          - ValidationError_loc_inner
+          - ValidationError_loc_inner
+          type: type
+      properties:
+        detail:
+          items:
+            $ref: "#/components/schemas/ValidationError"
+          type: array
+      title: HTTPValidationError
+    ValidationError:
+      example:
+        msg: msg
+        loc:
+        - ValidationError_loc_inner
+        - ValidationError_loc_inner
+        type: type
+      properties:
+        loc:
+          items:
+            $ref: "#/components/schemas/ValidationError_loc_inner"
+          type: array
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    src__controllers__v1__demo__FraudIndicator:
+      description: A single fraud detection indicator.
+      example:
+        severity: severity
+        score: 6.027456183070403
+        service: service
+        description: description
+        type: type
+      properties:
+        service:
+          title: Service
+          type: string
+        type:
+          title: Type
+          type: string
+        severity:
+          title: Severity
+          type: string
+        score:
+          title: Score
+          type: number
+        description:
+          title: Description
+          type: string
+      required:
+      - description
+      - score
+      - service
+      - severity
+      - type
+      title: FraudIndicator
+    ValidationError_loc_inner:
+      anyOf:
+      - type: string
+      - type: integer
+  securitySchemes:
+    BearerAuth:
+      description: "API token (format: shj_xxx)"
+      scheme: bearer
+      type: http
