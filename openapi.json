@@ -11,9 +11,225 @@
       "description": "Production"
     }
   ],
-  "paths": {},
+  "paths": {
+    "/v1/scan": {
+      "post": {
+        "summary": "Scan Public",
+        "description": "Scan a document for fraud indicators.\n\nAnalyzes the uploaded document (PDF or image) and returns a fraud verdict\nwith supporting indicators. Supports JPEG, PNG images and PDF documents.\n\n**Authentication**: Supports two methods:\n- Clerk JWT: `Authorization: Bearer <clerk_jwt>`\n- API Token: `Authorization: Bearer shj_...`\n\n**Data retention**: Uploaded files are automatically deleted after 24 hours.\n\nReturns:\n- **scan_id**: Unique identifier for this scan\n- **verdict**: Overall assessment (clean, suspicious, fraudulent, not_applicable)\n- **risk_score**: Risk score from 0.0 (clean) to 1.0 (fraud)\n- **indicators**: List of fraud indicators found\n- **summary**: Human-readable summary",
+        "operationId": "scan_public_v1_scan_post",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_scan_public_v1_scan_post"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScanResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    }
+  },
   "components": {
-    "schemas": {},
+    "schemas": {
+      "Body_scan_public_v1_scan_post": {
+        "properties": {
+          "file": {
+            "type": "string",
+            "format": "binary",
+            "title": "File",
+            "description": "Document to analyze (PDF, JPEG, PNG)"
+          }
+        },
+        "type": "object",
+        "required": [
+          "file"
+        ],
+        "title": "Body_scan_public_v1_scan_post"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "ScanIndicatorSimple": {
+        "properties": {
+          "service": {
+            "type": "string",
+            "title": "Service",
+            "description": "Detection service name"
+          },
+          "type": {
+            "type": "string",
+            "title": "Type",
+            "description": "Type of detection"
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "critical"
+            ],
+            "title": "Severity",
+            "description": "Severity level"
+          },
+          "score": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Score",
+            "description": "Detection score (0-1)"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+            "description": "Human-readable description"
+          }
+        },
+        "type": "object",
+        "required": [
+          "service",
+          "type",
+          "severity",
+          "score",
+          "description"
+        ],
+        "title": "ScanIndicatorSimple",
+        "description": "A fraud indicator in simplified format for public API."
+      },
+      "ScanResult": {
+        "properties": {
+          "scan_id": {
+            "type": "string",
+            "title": "Scan Id",
+            "description": "Unique scan identifier"
+          },
+          "verdict": {
+            "type": "string",
+            "title": "Verdict",
+            "description": "Overall fraud assessment: clean, suspicious, fraudulent, not_applicable"
+          },
+          "risk_score": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Risk Score",
+            "description": "Risk score (0=clean, 1=fraud)"
+          },
+          "indicators": {
+            "items": {
+              "$ref": "#/components/schemas/ScanIndicatorSimple"
+            },
+            "type": "array",
+            "title": "Indicators",
+            "description": "Fraud indicators found"
+          },
+          "summary": {
+            "type": "string",
+            "title": "Summary",
+            "description": "Human-readable summary"
+          },
+          "processing_time_ms": {
+            "type": "integer",
+            "title": "Processing Time Ms",
+            "description": "Processing time in milliseconds"
+          },
+          "file_name": {
+            "type": "string",
+            "title": "File Name",
+            "description": "Original file name"
+          },
+          "file_type": {
+            "type": "string",
+            "title": "File Type",
+            "description": "MIME type of uploaded file"
+          }
+        },
+        "type": "object",
+        "required": [
+          "scan_id",
+          "verdict",
+          "risk_score",
+          "indicators",
+          "summary",
+          "processing_time_ms",
+          "file_name",
+          "file_type"
+        ],
+        "title": "ScanResult",
+        "description": "Response from POST /v1/scan - clean public API."
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    },
     "securitySchemes": {
       "BearerAuth": {
         "type": "http",

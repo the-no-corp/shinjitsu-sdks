@@ -55,6 +55,37 @@ import shinjitsu
 from shinjitsu.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.the-no-corp.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = shinjitsu.Configuration(
+    host = "https://api.the-no-corp.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: BearerAuth
+configuration = shinjitsu.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+
+# Enter a context with an instance of the API client
+with shinjitsu.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = shinjitsu.DefaultApi(api_client)
+    file = None # bytearray | Document to analyze (PDF, JPEG, PNG)
+
+    try:
+        # Scan Public
+        api_response = api_instance.scan_public_v1_scan_post(file)
+        print("The response of DefaultApi->scan_public_v1_scan_post:\n")
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DefaultApi->scan_public_v1_scan_post: %s\n" % e)
+
 ```
 
 ## Documentation for API Endpoints
@@ -63,10 +94,16 @@ All URIs are relative to *https://api.the-no-corp.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**scan_public_v1_scan_post**](docs/DefaultApi.md#scan_public_v1_scan_post) | **POST** /v1/scan | Scan Public
 
 
 ## Documentation For Models
 
+ - [HTTPValidationError](docs/HTTPValidationError.md)
+ - [ScanIndicatorSimple](docs/ScanIndicatorSimple.md)
+ - [ScanResult](docs/ScanResult.md)
+ - [ValidationError](docs/ValidationError.md)
+ - [ValidationErrorLocInner](docs/ValidationErrorLocInner.md)
 
 
 <a id="documentation-for-authorization"></a>
@@ -81,6 +118,7 @@ Authentication schemes defined for the API:
 
 
 ## Author
+
 
 
 

@@ -13,6 +13,38 @@ npm install @the-no-corp/shinjitsu --save
 Next, try it out.
 
 
+```ts
+import {
+  Configuration,
+  DefaultApi,
+} from '@the-no-corp/shinjitsu';
+import type { ScanPublicV1ScanPostRequest } from '@the-no-corp/shinjitsu';
+
+async function example() {
+  console.log("🚀 Testing @the-no-corp/shinjitsu SDK...");
+  const config = new Configuration({ 
+    // Configure HTTP bearer authorization: BearerAuth
+    accessToken: "YOUR BEARER TOKEN",
+  });
+  const api = new DefaultApi(config);
+
+  const body = {
+    // Blob | Document to analyze (PDF, JPEG, PNG)
+    file: BINARY_DATA_HERE,
+  } satisfies ScanPublicV1ScanPostRequest;
+
+  try {
+    const data = await api.scanPublicV1ScanPost(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
 
 ## Documentation
 
@@ -22,10 +54,16 @@ All URIs are relative to *https://api.the-no-corp.com*
 
 | Class | Method | HTTP request | Description
 | ----- | ------ | ------------ | -------------
+*DefaultApi* | [**scanPublicV1ScanPost**](docs/DefaultApi.md#scanpublicv1scanpost) | **POST** /v1/scan | Scan Public
 
 
 ### Models
 
+- [HTTPValidationError](docs/HTTPValidationError.md)
+- [ScanIndicatorSimple](docs/ScanIndicatorSimple.md)
+- [ScanResult](docs/ScanResult.md)
+- [ValidationError](docs/ValidationError.md)
+- [ValidationErrorLocInner](docs/ValidationErrorLocInner.md)
 
 ### Authorization
 

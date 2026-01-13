@@ -78,10 +78,16 @@ All URIs are relative to *https://api.the-no-corp.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultAPI* | [**ScanPublicV1ScanPost**](docs/DefaultAPI.md#scanpublicv1scanpost) | **Post** /v1/scan | Scan Public
 
 
 ## Documentation For Models
 
+ - [HTTPValidationError](docs/HTTPValidationError.md)
+ - [ScanIndicatorSimple](docs/ScanIndicatorSimple.md)
+ - [ScanResult](docs/ScanResult.md)
+ - [ValidationError](docs/ValidationError.md)
+ - [ValidationErrorLocInner](docs/ValidationErrorLocInner.md)
 
 
 ## Documentation For Authorization
@@ -117,5 +123,6 @@ Each of these functions takes a value of the given basic type and returns a poin
 * `PtrTime`
 
 ## Author
+
 
 

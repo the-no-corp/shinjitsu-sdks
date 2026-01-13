@@ -18,6 +18,7 @@ __version__ = "0.1.0"
 
 # Define package exports
 __all__ = [
+    "DefaultApi",
     "ApiResponse",
     "ApiClient",
     "Configuration",
@@ -27,10 +28,15 @@ __all__ = [
     "ApiKeyError",
     "ApiAttributeError",
     "ApiException",
-    
+    "HTTPValidationError",
+    "ScanIndicatorSimple",
+    "ScanResult",
+    "ValidationError",
+    "ValidationErrorLocInner",
 ]
 
 # import apis into sdk package
+from shinjitsu.api.default_api import DefaultApi as DefaultApi
 
 # import ApiClient
 from shinjitsu.api_response import ApiResponse as ApiResponse
@@ -44,4 +50,9 @@ from shinjitsu.exceptions import ApiAttributeError as ApiAttributeError
 from shinjitsu.exceptions import ApiException as ApiException
 
 # import models into sdk package
+from shinjitsu.models.http_validation_error import HTTPValidationError as HTTPValidationError
+from shinjitsu.models.scan_indicator_simple import ScanIndicatorSimple as ScanIndicatorSimple
+from shinjitsu.models.scan_result import ScanResult as ScanResult
+from shinjitsu.models.validation_error import ValidationError as ValidationError
+from shinjitsu.models.validation_error_loc_inner import ValidationErrorLocInner as ValidationErrorLocInner
 

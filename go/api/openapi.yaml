@@ -8,9 +8,218 @@ servers:
   url: https://api.the-no-corp.com
 security:
 - BearerAuth: []
-paths: {}
+paths:
+  /v1/scan:
+    post:
+      description: |-
+        Scan a document for fraud indicators.
+
+        Analyzes the uploaded document (PDF or image) and returns a fraud verdict
+        with supporting indicators. Supports JPEG, PNG images and PDF documents.
+
+        **Authentication**: Supports two methods:
+        - Clerk JWT: `Authorization: Bearer <clerk_jwt>`
+        - API Token: `Authorization: Bearer shj_...`
+
+        **Data retention**: Uploaded files are automatically deleted after 24 hours.
+
+        Returns:
+        - **scan_id**: Unique identifier for this scan
+        - **verdict**: Overall assessment (clean, suspicious, fraudulent, not_applicable)
+        - **risk_score**: Risk score from 0.0 (clean) to 1.0 (fraud)
+        - **indicators**: List of fraud indicators found
+        - **summary**: Human-readable summary
+      operationId: scan_public_v1_scan_post
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: "#/components/schemas/Body_scan_public_v1_scan_post"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ScanResult"
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+          description: Validation Error
+      security:
+      - HTTPBearer: []
+      summary: Scan Public
 components:
-  schemas: {}
+  schemas:
+    Body_scan_public_v1_scan_post:
+      properties:
+        file:
+          description: "Document to analyze (PDF, JPEG, PNG)"
+          format: binary
+          title: File
+          type: string
+      required:
+      - file
+      title: Body_scan_public_v1_scan_post
+    HTTPValidationError:
+      example:
+        detail:
+        - msg: msg
+          loc:
+          - ValidationError_loc_inner
+          - ValidationError_loc_inner
+          type: type
+        - msg: msg
+          loc:
+          - ValidationError_loc_inner
+          - ValidationError_loc_inner
+          type: type
+      properties:
+        detail:
+          items:
+            $ref: "#/components/schemas/ValidationError"
+          type: array
+      title: HTTPValidationError
+    ScanIndicatorSimple:
+      description: A fraud indicator in simplified format for public API.
+      example:
+        severity: low
+        score: 0.6027456183070403
+        service: service
+        description: description
+        type: type
+      properties:
+        service:
+          description: Detection service name
+          title: Service
+          type: string
+        type:
+          description: Type of detection
+          title: Type
+          type: string
+        severity:
+          description: Severity level
+          enum:
+          - low
+          - medium
+          - high
+          - critical
+          title: Severity
+          type: string
+        score:
+          description: Detection score (0-1)
+          maximum: 1.0
+          minimum: 0.0
+          title: Score
+          type: number
+        description:
+          description: Human-readable description
+          title: Description
+          type: string
+      required:
+      - description
+      - score
+      - service
+      - severity
+      - type
+      title: ScanIndicatorSimple
+    ScanResult:
+      description: Response from POST /v1/scan - clean public API.
+      example:
+        summary: summary
+        processing_time_ms: 1
+        risk_score: 0.08008281904610115
+        file_name: file_name
+        file_type: file_type
+        verdict: verdict
+        scan_id: scan_id
+        indicators:
+        - severity: low
+          score: 0.6027456183070403
+          service: service
+          description: description
+          type: type
+        - severity: low
+          score: 0.6027456183070403
+          service: service
+          description: description
+          type: type
+      properties:
+        scan_id:
+          description: Unique scan identifier
+          title: Scan Id
+          type: string
+        verdict:
+          description: "Overall fraud assessment: clean, suspicious, fraudulent, not_applicable"
+          title: Verdict
+          type: string
+        risk_score:
+          description: "Risk score (0=clean, 1=fraud)"
+          maximum: 1.0
+          minimum: 0.0
+          title: Risk Score
+          type: number
+        indicators:
+          description: Fraud indicators found
+          items:
+            $ref: "#/components/schemas/ScanIndicatorSimple"
+          type: array
+        summary:
+          description: Human-readable summary
+          title: Summary
+          type: string
+        processing_time_ms:
+          description: Processing time in milliseconds
+          title: Processing Time Ms
+          type: integer
+        file_name:
+          description: Original file name
+          title: File Name
+          type: string
+        file_type:
+          description: MIME type of uploaded file
+          title: File Type
+          type: string
+      required:
+      - file_name
+      - file_type
+      - indicators
+      - processing_time_ms
+      - risk_score
+      - scan_id
+      - summary
+      - verdict
+      title: ScanResult
+    ValidationError:
+      example:
+        msg: msg
+        loc:
+        - ValidationError_loc_inner
+        - ValidationError_loc_inner
+        type: type
+      properties:
+        loc:
+          items:
+            $ref: "#/components/schemas/ValidationError_loc_inner"
+          type: array
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    ValidationError_loc_inner:
+      anyOf:
+      - type: string
+      - type: integer
   securitySchemes:
     BearerAuth:
       description: "API token (format: shj_xxx)"
