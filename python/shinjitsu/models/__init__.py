@@ -15,7 +15,7 @@
 # import models into model package
 from shinjitsu.models.analyze_response import AnalyzeResponse
 from shinjitsu.models.http_validation_error import HTTPValidationError
-from shinjitsu.models.src_controllers_v1_analyze_fraud_indicator import SrcControllersV1AnalyzeFraudIndicator
+from shinjitsu.models.src_controllers_v1_demo_fraud_indicator import SrcControllersV1DemoFraudIndicator
 from shinjitsu.models.validation_error import ValidationError
 from shinjitsu.models.validation_error_loc_inner import ValidationErrorLocInner
 

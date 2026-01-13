@@ -30,7 +30,7 @@ __all__ = [
     "ApiException",
     "AnalyzeResponse",
     "HTTPValidationError",
-    "SrcControllersV1AnalyzeFraudIndicator",
+    "SrcControllersV1DemoFraudIndicator",
     "ValidationError",
     "ValidationErrorLocInner",
 ]
@@ -52,7 +52,7 @@ from shinjitsu.exceptions import ApiException as ApiException
 # import models into sdk package
 from shinjitsu.models.analyze_response import AnalyzeResponse as AnalyzeResponse
 from shinjitsu.models.http_validation_error import HTTPValidationError as HTTPValidationError
-from shinjitsu.models.src_controllers_v1_analyze_fraud_indicator import SrcControllersV1AnalyzeFraudIndicator as SrcControllersV1AnalyzeFraudIndicator
+from shinjitsu.models.src_controllers_v1_demo_fraud_indicator import SrcControllersV1DemoFraudIndicator as SrcControllersV1DemoFraudIndicator
 from shinjitsu.models.validation_error import ValidationError as ValidationError
 from shinjitsu.models.validation_error_loc_inner import ValidationErrorLocInner as ValidationErrorLocInner
 

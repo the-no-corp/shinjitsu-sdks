@@ -10,7 +10,7 @@ Name | Type
 `scanId` | string
 `riskScore` | number
 `verdict` | string
-`indicators` | [Array&lt;SrcControllersV1AnalyzeFraudIndicator&gt;](SrcControllersV1AnalyzeFraudIndicator.md)
+`indicators` | [Array&lt;SrcControllersV1DemoFraudIndicator&gt;](SrcControllersV1DemoFraudIndicator.md)
 `summary` | string
 `processingTimeMs` | number
 `fileName` | string

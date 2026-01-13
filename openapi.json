@@ -86,7 +86,7 @@
           },
           "indicators": {
             "items": {
-              "$ref": "#/components/schemas/src__controllers__v1__analyze__FraudIndicator"
+              "$ref": "#/components/schemas/src__controllers__v1__demo__FraudIndicator"
             },
             "type": "array",
             "title": "Indicators"
@@ -182,7 +182,7 @@
         ],
         "title": "ValidationError"
       },
-      "src__controllers__v1__analyze__FraudIndicator": {
+      "src__controllers__v1__demo__FraudIndicator": {
         "properties": {
           "service": {
             "type": "string",

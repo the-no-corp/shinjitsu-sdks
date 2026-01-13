@@ -16,45 +16,45 @@ import { mapValues } from '../runtime';
 /**
  * A single fraud detection indicator.
  * @export
- * @interface SrcControllersV1AnalyzeFraudIndicator
+ * @interface SrcControllersV1DemoFraudIndicator
  */
-export interface SrcControllersV1AnalyzeFraudIndicator {
+export interface SrcControllersV1DemoFraudIndicator {
     /**
      * 
      * @type {string}
-     * @memberof SrcControllersV1AnalyzeFraudIndicator
+     * @memberof SrcControllersV1DemoFraudIndicator
      */
     service: string;
     /**
      * 
      * @type {string}
-     * @memberof SrcControllersV1AnalyzeFraudIndicator
+     * @memberof SrcControllersV1DemoFraudIndicator
      */
     type: string;
     /**
      * 
      * @type {string}
-     * @memberof SrcControllersV1AnalyzeFraudIndicator
+     * @memberof SrcControllersV1DemoFraudIndicator
      */
     severity: string;
     /**
      * 
      * @type {number}
-     * @memberof SrcControllersV1AnalyzeFraudIndicator
+     * @memberof SrcControllersV1DemoFraudIndicator
      */
     score: number;
     /**
      * 
      * @type {string}
-     * @memberof SrcControllersV1AnalyzeFraudIndicator
+     * @memberof SrcControllersV1DemoFraudIndicator
      */
     description: string;
 }
 
 /**
- * Check if a given object implements the SrcControllersV1AnalyzeFraudIndicator interface.
+ * Check if a given object implements the SrcControllersV1DemoFraudIndicator interface.
  */
-export function instanceOfSrcControllersV1AnalyzeFraudIndicator(value: object): value is SrcControllersV1AnalyzeFraudIndicator {
+export function instanceOfSrcControllersV1DemoFraudIndicator(value: object): value is SrcControllersV1DemoFraudIndicator {
     if (!('service' in value) || value['service'] === undefined) return false;
     if (!('type' in value) || value['type'] === undefined) return false;
     if (!('severity' in value) || value['severity'] === undefined) return false;
@@ -63,11 +63,11 @@ export function instanceOfSrcControllersV1AnalyzeFraudIndicator(value: object): 
     return true;
 }
 
-export function SrcControllersV1AnalyzeFraudIndicatorFromJSON(json: any): SrcControllersV1AnalyzeFraudIndicator {
-    return SrcControllersV1AnalyzeFraudIndicatorFromJSONTyped(json, false);
+export function SrcControllersV1DemoFraudIndicatorFromJSON(json: any): SrcControllersV1DemoFraudIndicator {
+    return SrcControllersV1DemoFraudIndicatorFromJSONTyped(json, false);
 }
 
-export function SrcControllersV1AnalyzeFraudIndicatorFromJSONTyped(json: any, ignoreDiscriminator: boolean): SrcControllersV1AnalyzeFraudIndicator {
+export function SrcControllersV1DemoFraudIndicatorFromJSONTyped(json: any, ignoreDiscriminator: boolean): SrcControllersV1DemoFraudIndicator {
     if (json == null) {
         return json;
     }
@@ -81,11 +81,11 @@ export function SrcControllersV1AnalyzeFraudIndicatorFromJSONTyped(json: any, ig
     };
 }
 
-export function SrcControllersV1AnalyzeFraudIndicatorToJSON(json: any): SrcControllersV1AnalyzeFraudIndicator {
-    return SrcControllersV1AnalyzeFraudIndicatorToJSONTyped(json, false);
+export function SrcControllersV1DemoFraudIndicatorToJSON(json: any): SrcControllersV1DemoFraudIndicator {
+    return SrcControllersV1DemoFraudIndicatorToJSONTyped(json, false);
 }
 
-export function SrcControllersV1AnalyzeFraudIndicatorToJSONTyped(value?: SrcControllersV1AnalyzeFraudIndicator | null, ignoreDiscriminator: boolean = false): any {
+export function SrcControllersV1DemoFraudIndicatorToJSONTyped(value?: SrcControllersV1DemoFraudIndicator | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
