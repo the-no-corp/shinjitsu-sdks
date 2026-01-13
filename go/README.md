@@ -78,16 +78,10 @@ All URIs are relative to *https://api.the-no-corp.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AnalyzeAPI* | [**AnalyzeDocumentV1AnalyzePost**](docs/AnalyzeAPI.md#analyzedocumentv1analyzepost) | **Post** /v1/analyze | Analyze Document
 
 
 ## Documentation For Models
 
- - [AnalyzeResponse](docs/AnalyzeResponse.md)
- - [HTTPValidationError](docs/HTTPValidationError.md)
- - [SrcControllersV1DemoFraudIndicator](docs/SrcControllersV1DemoFraudIndicator.md)
- - [ValidationError](docs/ValidationError.md)
- - [ValidationErrorLocInner](docs/ValidationErrorLocInner.md)
 
 
 ## Documentation For Authorization
@@ -123,6 +117,5 @@ Each of these functions takes a value of the given basic type and returns a poin
 * `PtrTime`
 
 ## Author
-
 
 

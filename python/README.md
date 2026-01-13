@@ -55,38 +55,6 @@ import shinjitsu
 from shinjitsu.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.the-no-corp.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = shinjitsu.Configuration(
-    host = "https://api.the-no-corp.com"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization: BearerAuth
-configuration = shinjitsu.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
-
-
-# Enter a context with an instance of the API client
-with shinjitsu.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = shinjitsu.AnalyzeApi(api_client)
-    authorization = 'authorization_example' # str | Bearer token: 'Bearer shj_...'
-    file = None # bytearray | 
-
-    try:
-        # Analyze Document
-        api_response = api_instance.analyze_document_v1_analyze_post(authorization, file)
-        print("The response of AnalyzeApi->analyze_document_v1_analyze_post:\n")
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling AnalyzeApi->analyze_document_v1_analyze_post: %s\n" % e)
-
 ```
 
 ## Documentation for API Endpoints
@@ -95,16 +63,10 @@ All URIs are relative to *https://api.the-no-corp.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AnalyzeApi* | [**analyze_document_v1_analyze_post**](docs/AnalyzeApi.md#analyze_document_v1_analyze_post) | **POST** /v1/analyze | Analyze Document
 
 
 ## Documentation For Models
 
- - [AnalyzeResponse](docs/AnalyzeResponse.md)
- - [HTTPValidationError](docs/HTTPValidationError.md)
- - [SrcControllersV1DemoFraudIndicator](docs/SrcControllersV1DemoFraudIndicator.md)
- - [ValidationError](docs/ValidationError.md)
- - [ValidationErrorLocInner](docs/ValidationErrorLocInner.md)
 
 
 <a id="documentation-for-authorization"></a>
@@ -119,7 +81,6 @@ Authentication schemes defined for the API:
 
 
 ## Author
-
 
 
 

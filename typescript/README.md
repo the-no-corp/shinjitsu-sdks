@@ -13,40 +13,6 @@ npm install @the-no-corp/shinjitsu --save
 Next, try it out.
 
 
-```ts
-import {
-  Configuration,
-  AnalyzeApi,
-} from '@the-no-corp/shinjitsu';
-import type { AnalyzeDocumentV1AnalyzePostRequest } from '@the-no-corp/shinjitsu';
-
-async function example() {
-  console.log("🚀 Testing @the-no-corp/shinjitsu SDK...");
-  const config = new Configuration({ 
-    // Configure HTTP bearer authorization: BearerAuth
-    accessToken: "YOUR BEARER TOKEN",
-  });
-  const api = new AnalyzeApi(config);
-
-  const body = {
-    // string | Bearer token: \'Bearer shj_...\'
-    authorization: authorization_example,
-    // Blob
-    file: BINARY_DATA_HERE,
-  } satisfies AnalyzeDocumentV1AnalyzePostRequest;
-
-  try {
-    const data = await api.analyzeDocumentV1AnalyzePost(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
 
 ## Documentation
 
@@ -56,16 +22,10 @@ All URIs are relative to *https://api.the-no-corp.com*
 
 | Class | Method | HTTP request | Description
 | ----- | ------ | ------------ | -------------
-*AnalyzeApi* | [**analyzeDocumentV1AnalyzePost**](docs/AnalyzeApi.md#analyzedocumentv1analyzepost) | **POST** /v1/analyze | Analyze Document
 
 
 ### Models
 
-- [AnalyzeResponse](docs/AnalyzeResponse.md)
-- [HTTPValidationError](docs/HTTPValidationError.md)
-- [SrcControllersV1DemoFraudIndicator](docs/SrcControllersV1DemoFraudIndicator.md)
-- [ValidationError](docs/ValidationError.md)
-- [ValidationErrorLocInner](docs/ValidationErrorLocInner.md)
 
 ### Authorization
 
