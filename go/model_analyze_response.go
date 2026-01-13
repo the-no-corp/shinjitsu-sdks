@@ -24,7 +24,7 @@ type AnalyzeResponse struct {
 	ScanId string `json:"scan_id"`
 	RiskScore float32 `json:"risk_score"`
 	Verdict string `json:"verdict"`
-	Indicators []SrcControllersV1DemoFraudIndicator `json:"indicators"`
+	Indicators []SrcControllersV1AnalyzeFraudIndicator `json:"indicators"`
 	Summary string `json:"summary"`
 	ProcessingTimeMs int32 `json:"processing_time_ms"`
 	FileName string `json:"file_name"`
@@ -37,7 +37,7 @@ type _AnalyzeResponse AnalyzeResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAnalyzeResponse(scanId string, riskScore float32, verdict string, indicators []SrcControllersV1DemoFraudIndicator, summary string, processingTimeMs int32, fileName string, fileType string) *AnalyzeResponse {
+func NewAnalyzeResponse(scanId string, riskScore float32, verdict string, indicators []SrcControllersV1AnalyzeFraudIndicator, summary string, processingTimeMs int32, fileName string, fileType string) *AnalyzeResponse {
 	this := AnalyzeResponse{}
 	this.ScanId = scanId
 	this.RiskScore = riskScore
@@ -131,9 +131,9 @@ func (o *AnalyzeResponse) SetVerdict(v string) {
 }
 
 // GetIndicators returns the Indicators field value
-func (o *AnalyzeResponse) GetIndicators() []SrcControllersV1DemoFraudIndicator {
+func (o *AnalyzeResponse) GetIndicators() []SrcControllersV1AnalyzeFraudIndicator {
 	if o == nil {
-		var ret []SrcControllersV1DemoFraudIndicator
+		var ret []SrcControllersV1AnalyzeFraudIndicator
 		return ret
 	}
 
@@ -142,7 +142,7 @@ func (o *AnalyzeResponse) GetIndicators() []SrcControllersV1DemoFraudIndicator {
 
 // GetIndicatorsOk returns a tuple with the Indicators field value
 // and a boolean to check if the value has been set.
-func (o *AnalyzeResponse) GetIndicatorsOk() ([]SrcControllersV1DemoFraudIndicator, bool) {
+func (o *AnalyzeResponse) GetIndicatorsOk() ([]SrcControllersV1AnalyzeFraudIndicator, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -150,7 +150,7 @@ func (o *AnalyzeResponse) GetIndicatorsOk() ([]SrcControllersV1DemoFraudIndicato
 }
 
 // SetIndicators sets field value
-func (o *AnalyzeResponse) SetIndicators(v []SrcControllersV1DemoFraudIndicator) {
+func (o *AnalyzeResponse) SetIndicators(v []SrcControllersV1AnalyzeFraudIndicator) {
 	o.Indicators = v
 }
 

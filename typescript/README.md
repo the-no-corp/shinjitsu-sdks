@@ -63,7 +63,7 @@ All URIs are relative to *https://api.the-no-corp.com*
 
 - [AnalyzeResponse](docs/AnalyzeResponse.md)
 - [HTTPValidationError](docs/HTTPValidationError.md)
-- [SrcControllersV1DemoFraudIndicator](docs/SrcControllersV1DemoFraudIndicator.md)
+- [SrcControllersV1AnalyzeFraudIndicator](docs/SrcControllersV1AnalyzeFraudIndicator.md)
 - [ValidationError](docs/ValidationError.md)
 - [ValidationErrorLocInner](docs/ValidationErrorLocInner.md)
 

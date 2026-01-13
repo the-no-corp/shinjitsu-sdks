@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { SrcControllersV1DemoFraudIndicator } from './SrcControllersV1DemoFraudIndicator';
+import type { SrcControllersV1AnalyzeFraudIndicator } from './SrcControllersV1AnalyzeFraudIndicator';
 import {
-    SrcControllersV1DemoFraudIndicatorFromJSON,
-    SrcControllersV1DemoFraudIndicatorFromJSONTyped,
-    SrcControllersV1DemoFraudIndicatorToJSON,
-    SrcControllersV1DemoFraudIndicatorToJSONTyped,
-} from './SrcControllersV1DemoFraudIndicator';
+    SrcControllersV1AnalyzeFraudIndicatorFromJSON,
+    SrcControllersV1AnalyzeFraudIndicatorFromJSONTyped,
+    SrcControllersV1AnalyzeFraudIndicatorToJSON,
+    SrcControllersV1AnalyzeFraudIndicatorToJSONTyped,
+} from './SrcControllersV1AnalyzeFraudIndicator';
 
 /**
  * Response from document analysis.
@@ -47,10 +47,10 @@ export interface AnalyzeResponse {
     verdict: string;
     /**
      * 
-     * @type {Array<SrcControllersV1DemoFraudIndicator>}
+     * @type {Array<SrcControllersV1AnalyzeFraudIndicator>}
      * @memberof AnalyzeResponse
      */
-    indicators: Array<SrcControllersV1DemoFraudIndicator>;
+    indicators: Array<SrcControllersV1AnalyzeFraudIndicator>;
     /**
      * 
      * @type {string}
@@ -105,7 +105,7 @@ export function AnalyzeResponseFromJSONTyped(json: any, ignoreDiscriminator: boo
         'scanId': json['scan_id'],
         'riskScore': json['risk_score'],
         'verdict': json['verdict'],
-        'indicators': ((json['indicators'] as Array<any>).map(SrcControllersV1DemoFraudIndicatorFromJSON)),
+        'indicators': ((json['indicators'] as Array<any>).map(SrcControllersV1AnalyzeFraudIndicatorFromJSON)),
         'summary': json['summary'],
         'processingTimeMs': json['processing_time_ms'],
         'fileName': json['file_name'],
@@ -127,7 +127,7 @@ export function AnalyzeResponseToJSONTyped(value?: AnalyzeResponse | null, ignor
         'scan_id': value['scanId'],
         'risk_score': value['riskScore'],
         'verdict': value['verdict'],
-        'indicators': ((value['indicators'] as Array<any>).map(SrcControllersV1DemoFraudIndicatorToJSON)),
+        'indicators': ((value['indicators'] as Array<any>).map(SrcControllersV1AnalyzeFraudIndicatorToJSON)),
         'summary': value['summary'],
         'processing_time_ms': value['processingTimeMs'],
         'file_name': value['fileName'],

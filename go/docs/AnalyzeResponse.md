@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **ScanId** | **string** |  | 
 **RiskScore** | **float32** |  | 
 **Verdict** | **string** |  | 
-**Indicators** | [**[]SrcControllersV1DemoFraudIndicator**](SrcControllersV1DemoFraudIndicator.md) |  | 
+**Indicators** | [**[]SrcControllersV1AnalyzeFraudIndicator**](SrcControllersV1AnalyzeFraudIndicator.md) |  | 
 **Summary** | **string** |  | 
 **ProcessingTimeMs** | **int32** |  | 
 **FileName** | **string** |  | 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewAnalyzeResponse
 
-`func NewAnalyzeResponse(scanId string, riskScore float32, verdict string, indicators []SrcControllersV1DemoFraudIndicator, summary string, processingTimeMs int32, fileName string, fileType string, ) *AnalyzeResponse`
+`func NewAnalyzeResponse(scanId string, riskScore float32, verdict string, indicators []SrcControllersV1AnalyzeFraudIndicator, summary string, processingTimeMs int32, fileName string, fileType string, ) *AnalyzeResponse`
 
 NewAnalyzeResponse instantiates a new AnalyzeResponse object
 This constructor will assign default values to properties that have it defined,
@@ -94,20 +94,20 @@ SetVerdict sets Verdict field to given value.
 
 ### GetIndicators
 
-`func (o *AnalyzeResponse) GetIndicators() []SrcControllersV1DemoFraudIndicator`
+`func (o *AnalyzeResponse) GetIndicators() []SrcControllersV1AnalyzeFraudIndicator`
 
 GetIndicators returns the Indicators field if non-nil, zero value otherwise.
 
 ### GetIndicatorsOk
 
-`func (o *AnalyzeResponse) GetIndicatorsOk() (*[]SrcControllersV1DemoFraudIndicator, bool)`
+`func (o *AnalyzeResponse) GetIndicatorsOk() (*[]SrcControllersV1AnalyzeFraudIndicator, bool)`
 
 GetIndicatorsOk returns a tuple with the Indicators field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIndicators
 
-`func (o *AnalyzeResponse) SetIndicators(v []SrcControllersV1DemoFraudIndicator)`
+`func (o *AnalyzeResponse) SetIndicators(v []SrcControllersV1AnalyzeFraudIndicator)`
 
 SetIndicators sets Indicators field to given value.
 

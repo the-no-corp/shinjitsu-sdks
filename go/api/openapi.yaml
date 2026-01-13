@@ -92,7 +92,7 @@ components:
           type: string
         indicators:
           items:
-            $ref: "#/components/schemas/src__controllers__v1__demo__FraudIndicator"
+            $ref: "#/components/schemas/src__controllers__v1__analyze__FraudIndicator"
           type: array
         summary:
           title: Summary
@@ -167,7 +167,7 @@ components:
       - msg
       - type
       title: ValidationError
-    src__controllers__v1__demo__FraudIndicator:
+    src__controllers__v1__analyze__FraudIndicator:
       description: A single fraud detection indicator.
       example:
         severity: severity

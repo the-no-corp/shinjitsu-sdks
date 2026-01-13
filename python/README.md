@@ -102,7 +102,7 @@ Class | Method | HTTP request | Description
 
  - [AnalyzeResponse](docs/AnalyzeResponse.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)
- - [SrcControllersV1DemoFraudIndicator](docs/SrcControllersV1DemoFraudIndicator.md)
+ - [SrcControllersV1AnalyzeFraudIndicator](docs/SrcControllersV1AnalyzeFraudIndicator.md)
  - [ValidationError](docs/ValidationError.md)
  - [ValidationErrorLocInner](docs/ValidationErrorLocInner.md)
 

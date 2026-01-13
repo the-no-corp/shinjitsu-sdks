@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **scan_id** | **str** |  | 
 **risk_score** | **float** |  | 
 **verdict** | **str** |  | 
-**indicators** | [**List[SrcControllersV1DemoFraudIndicator]**](SrcControllersV1DemoFraudIndicator.md) |  | 
+**indicators** | [**List[SrcControllersV1AnalyzeFraudIndicator]**](SrcControllersV1AnalyzeFraudIndicator.md) |  | 
 **summary** | **str** |  | 
 **processing_time_ms** | **int** |  | 
 **file_name** | **str** |  | 

@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Union
-from shinjitsu.models.src_controllers_v1_demo_fraud_indicator import SrcControllersV1DemoFraudIndicator
+from shinjitsu.models.src_controllers_v1_analyze_fraud_indicator import SrcControllersV1AnalyzeFraudIndicator
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,7 +30,7 @@ class AnalyzeResponse(BaseModel):
     scan_id: StrictStr
     risk_score: Union[StrictFloat, StrictInt]
     verdict: StrictStr
-    indicators: List[SrcControllersV1DemoFraudIndicator]
+    indicators: List[SrcControllersV1AnalyzeFraudIndicator]
     summary: StrictStr
     processing_time_ms: StrictInt
     file_name: StrictStr
@@ -98,7 +98,7 @@ class AnalyzeResponse(BaseModel):
             "scan_id": obj.get("scan_id"),
             "risk_score": obj.get("risk_score"),
             "verdict": obj.get("verdict"),
-            "indicators": [SrcControllersV1DemoFraudIndicator.from_dict(_item) for _item in obj["indicators"]] if obj.get("indicators") is not None else None,
+            "indicators": [SrcControllersV1AnalyzeFraudIndicator.from_dict(_item) for _item in obj["indicators"]] if obj.get("indicators") is not None else None,
             "summary": obj.get("summary"),
             "processing_time_ms": obj.get("processing_time_ms"),
             "file_name": obj.get("file_name"),
