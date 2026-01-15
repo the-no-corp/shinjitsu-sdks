@@ -30,6 +30,8 @@ Returns:
 - **indicators**: List of fraud indicators found
 - **summary**: Human-readable summary
 
+Returns 403 with SCAN_LIMIT_EXCEEDED if user has reached their limit.
+
 ### Example
 
 * Bearer Authentication (BearerAuth):

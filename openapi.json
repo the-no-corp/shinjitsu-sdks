@@ -15,7 +15,7 @@
     "/v1/scan": {
       "post": {
         "summary": "Scan Public",
-        "description": "Scan a document for fraud indicators.\n\nAnalyzes the uploaded document (PDF or image) and returns a fraud verdict\nwith supporting indicators. Supports JPEG, PNG images and PDF documents.\n\n**Authentication**: Supports two methods:\n- Clerk JWT: `Authorization: Bearer <clerk_jwt>`\n- API Token: `Authorization: Bearer shj_...`\n\n**Data retention**: Uploaded files are automatically deleted after 24 hours.\n\nReturns:\n- **scan_id**: Unique identifier for this scan\n- **verdict**: Overall assessment (clean, suspicious, fraudulent, not_applicable)\n- **risk_score**: Risk score from 0.0 (clean) to 1.0 (fraud)\n- **indicators**: List of fraud indicators found\n- **summary**: Human-readable summary",
+        "description": "Scan a document for fraud indicators.\n\nAnalyzes the uploaded document (PDF or image) and returns a fraud verdict\nwith supporting indicators. Supports JPEG, PNG images and PDF documents.\n\n**Authentication**: Supports two methods:\n- Clerk JWT: `Authorization: Bearer <clerk_jwt>`\n- API Token: `Authorization: Bearer shj_...`\n\n**Data retention**: Uploaded files are automatically deleted after 24 hours.\n\nReturns:\n- **scan_id**: Unique identifier for this scan\n- **verdict**: Overall assessment (clean, suspicious, fraudulent, not_applicable)\n- **risk_score**: Risk score from 0.0 (clean) to 1.0 (fraud)\n- **indicators**: List of fraud indicators found\n- **summary**: Human-readable summary\n\nReturns 403 with SCAN_LIMIT_EXCEEDED if user has reached their limit.",
         "operationId": "scan_public_v1_scan_post",
         "requestBody": {
           "content": {

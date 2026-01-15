@@ -35,7 +35,7 @@ export interface ScanPublicV1ScanPostRequest {
 export class DefaultApi extends runtime.BaseAPI {
 
     /**
-     * Scan a document for fraud indicators.  Analyzes the uploaded document (PDF or image) and returns a fraud verdict with supporting indicators. Supports JPEG, PNG images and PDF documents.  **Authentication**: Supports two methods: - Clerk JWT: `Authorization: Bearer <clerk_jwt>` - API Token: `Authorization: Bearer shj_...`  **Data retention**: Uploaded files are automatically deleted after 24 hours.  Returns: - **scan_id**: Unique identifier for this scan - **verdict**: Overall assessment (clean, suspicious, fraudulent, not_applicable) - **risk_score**: Risk score from 0.0 (clean) to 1.0 (fraud) - **indicators**: List of fraud indicators found - **summary**: Human-readable summary
+     * Scan a document for fraud indicators.  Analyzes the uploaded document (PDF or image) and returns a fraud verdict with supporting indicators. Supports JPEG, PNG images and PDF documents.  **Authentication**: Supports two methods: - Clerk JWT: `Authorization: Bearer <clerk_jwt>` - API Token: `Authorization: Bearer shj_...`  **Data retention**: Uploaded files are automatically deleted after 24 hours.  Returns: - **scan_id**: Unique identifier for this scan - **verdict**: Overall assessment (clean, suspicious, fraudulent, not_applicable) - **risk_score**: Risk score from 0.0 (clean) to 1.0 (fraud) - **indicators**: List of fraud indicators found - **summary**: Human-readable summary  Returns 403 with SCAN_LIMIT_EXCEEDED if user has reached their limit.
      * Scan Public
      */
     async scanPublicV1ScanPostRaw(requestParameters: ScanPublicV1ScanPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ScanResult>> {
@@ -93,7 +93,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Scan a document for fraud indicators.  Analyzes the uploaded document (PDF or image) and returns a fraud verdict with supporting indicators. Supports JPEG, PNG images and PDF documents.  **Authentication**: Supports two methods: - Clerk JWT: `Authorization: Bearer <clerk_jwt>` - API Token: `Authorization: Bearer shj_...`  **Data retention**: Uploaded files are automatically deleted after 24 hours.  Returns: - **scan_id**: Unique identifier for this scan - **verdict**: Overall assessment (clean, suspicious, fraudulent, not_applicable) - **risk_score**: Risk score from 0.0 (clean) to 1.0 (fraud) - **indicators**: List of fraud indicators found - **summary**: Human-readable summary
+     * Scan a document for fraud indicators.  Analyzes the uploaded document (PDF or image) and returns a fraud verdict with supporting indicators. Supports JPEG, PNG images and PDF documents.  **Authentication**: Supports two methods: - Clerk JWT: `Authorization: Bearer <clerk_jwt>` - API Token: `Authorization: Bearer shj_...`  **Data retention**: Uploaded files are automatically deleted after 24 hours.  Returns: - **scan_id**: Unique identifier for this scan - **verdict**: Overall assessment (clean, suspicious, fraudulent, not_applicable) - **risk_score**: Risk score from 0.0 (clean) to 1.0 (fraud) - **indicators**: List of fraud indicators found - **summary**: Human-readable summary  Returns 403 with SCAN_LIMIT_EXCEEDED if user has reached their limit.
      * Scan Public
      */
     async scanPublicV1ScanPost(requestParameters: ScanPublicV1ScanPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ScanResult> {

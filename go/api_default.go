@@ -60,6 +60,8 @@ Returns:
 - **indicators**: List of fraud indicators found
 - **summary**: Human-readable summary
 
+Returns 403 with SCAN_LIMIT_EXCEEDED if user has reached their limit.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiScanPublicV1ScanPostRequest
 */

@@ -29,6 +29,8 @@ paths:
         - **risk_score**: Risk score from 0.0 (clean) to 1.0 (fraud)
         - **indicators**: List of fraud indicators found
         - **summary**: Human-readable summary
+
+        Returns 403 with SCAN_LIMIT_EXCEEDED if user has reached their limit.
       operationId: scan_public_v1_scan_post
       requestBody:
         content:
