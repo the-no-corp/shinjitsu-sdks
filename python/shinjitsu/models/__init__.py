@@ -14,8 +14,8 @@
 
 # import models into model package
 from shinjitsu.models.http_validation_error import HTTPValidationError
+from shinjitsu.models.location_inner import LocationInner
 from shinjitsu.models.scan_indicator_simple import ScanIndicatorSimple
 from shinjitsu.models.scan_result import ScanResult
 from shinjitsu.models.validation_error import ValidationError
-from shinjitsu.models.validation_error_loc_inner import ValidationErrorLocInner
 

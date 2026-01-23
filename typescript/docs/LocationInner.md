@@ -1,26 +1,20 @@
 
-# ValidationError
+# LocationInner
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`loc` | [Array&lt;LocationInner&gt;](LocationInner.md)
-`msg` | string
-`type` | string
 
 ## Example
 
 ```typescript
-import type { ValidationError } from '@the-no-corp/shinjitsu'
+import type { LocationInner } from '@the-no-corp/shinjitsu'
 
 // TODO: Update the object below with actual values
 const example = {
-  "loc": null,
-  "msg": null,
-  "type": null,
-} satisfies ValidationError
+} satisfies LocationInner
 
 console.log(example)
 
@@ -29,7 +23,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as ValidationError
+const exampleParsed = JSON.parse(exampleJSON) as LocationInner
 console.log(exampleParsed)
 ```
 

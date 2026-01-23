@@ -71,18 +71,19 @@ components:
         detail:
         - msg: msg
           loc:
-          - ValidationError_loc_inner
-          - ValidationError_loc_inner
+          - Location_inner
+          - Location_inner
           type: type
         - msg: msg
           loc:
-          - ValidationError_loc_inner
-          - ValidationError_loc_inner
+          - Location_inner
+          - Location_inner
           type: type
       properties:
         detail:
           items:
             $ref: "#/components/schemas/ValidationError"
+          title: Detail
           type: array
       title: HTTPValidationError
     ScanIndicatorSimple:
@@ -168,6 +169,7 @@ components:
           description: Fraud indicators found
           items:
             $ref: "#/components/schemas/ScanIndicatorSimple"
+          title: Indicators
           type: array
         summary:
           description: Human-readable summary
@@ -199,13 +201,14 @@ components:
       example:
         msg: msg
         loc:
-        - ValidationError_loc_inner
-        - ValidationError_loc_inner
+        - Location_inner
+        - Location_inner
         type: type
       properties:
         loc:
           items:
-            $ref: "#/components/schemas/ValidationError_loc_inner"
+            $ref: "#/components/schemas/Location_inner"
+          title: Location
           type: array
         msg:
           title: Message
@@ -218,7 +221,7 @@ components:
       - msg
       - type
       title: ValidationError
-    ValidationError_loc_inner:
+    Location_inner:
       anyOf:
       - type: string
       - type: integer

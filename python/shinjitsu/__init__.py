@@ -29,10 +29,10 @@ __all__ = [
     "ApiAttributeError",
     "ApiException",
     "HTTPValidationError",
+    "LocationInner",
     "ScanIndicatorSimple",
     "ScanResult",
     "ValidationError",
-    "ValidationErrorLocInner",
 ]
 
 # import apis into sdk package
@@ -51,8 +51,8 @@ from shinjitsu.exceptions import ApiException as ApiException
 
 # import models into sdk package
 from shinjitsu.models.http_validation_error import HTTPValidationError as HTTPValidationError
+from shinjitsu.models.location_inner import LocationInner as LocationInner
 from shinjitsu.models.scan_indicator_simple import ScanIndicatorSimple as ScanIndicatorSimple
 from shinjitsu.models.scan_result import ScanResult as ScanResult
 from shinjitsu.models.validation_error import ValidationError as ValidationError
-from shinjitsu.models.validation_error_loc_inner import ValidationErrorLocInner as ValidationErrorLocInner
 
